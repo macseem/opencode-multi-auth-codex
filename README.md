@@ -158,6 +158,24 @@ opencode-multi-auth web --host 127.0.0.1 --port 3434
 
 Open `http://127.0.0.1:3434`.
 
+### Standalone API service (experimental)
+
+Start an OpenAI-compatible local API service backed by the same multi-account Codex rotation runtime:
+
+```bash
+export OPENCODE_MULTI_AUTH_API_KEY="change-me"
+opencode-multi-auth api --host 127.0.0.1 --port 3435
+```
+
+Endpoints:
+
+- `GET /api/health`
+- `GET /v1/models`
+- `POST /v1/responses`
+- `POST /v1/chat/completions`
+
+Use `Authorization: Bearer $OPENCODE_MULTI_AUTH_API_KEY` for `/v1/*` routes when a key is configured. Remote binding is blocked unless `OPENCODE_MULTI_AUTH_ALLOW_REMOTE_API=1` and `OPENCODE_MULTI_AUTH_API_KEY` are set.
+
 ## Automated Bulk Login (Outlook)
 
 The `auto-login/` directory contains a standalone Python script that **automates the full OAuth login flow** for multiple Outlook-based ChatGPT accounts. Instead of manually running `opencode-multi-auth add` and clicking through the browser for each account, the script handles everything:
