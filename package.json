@@ -11,6 +11,9 @@
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist",
+    "dev": "node --env-file=.env --import tsx ./src/cli.ts api",
+    "dev:api": "node --env-file=.env --import tsx ./src/cli.ts api",
+    "watch": "node --env-file=.env --watch --import tsx ./src/cli.ts api",
     "web": "node ./dist/cli.js web --port 3434 --host 127.0.0.1",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/unit",
@@ -38,6 +41,7 @@
     "@types/node": "^22.10.2",
     "jest": "^29.7.0",
     "ts-jest": "^29.4.6",
+    "tsx": "^4.23.0",
     "typescript": "^5.7.2"
   },
   "files": [
