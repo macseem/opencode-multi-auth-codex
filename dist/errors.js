@@ -19,10 +19,10 @@ export const Errors = {
         message: `Account is disabled: ${alias}`,
         details: { alias },
     }),
-    maxRetriesExceeded: (attempts, aliasesTried, details) => ({
+    maxRetriesExceeded: (attempts, aliasesTried) => ({
         code: 'MAX_RETRIES_EXCEEDED',
         message: `Exhausted all ${attempts} retry attempts`,
-        details: { attempts, aliasesTried, ...details },
+        details: { attempts, aliasesTried },
     }),
     storeLocked: (reason) => ({
         code: 'STORE_LOCKED',
